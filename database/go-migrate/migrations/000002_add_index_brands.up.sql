@@ -1,0 +1,1 @@
+CREATE INDEX idx_name ON "brands" ("name");

@@ -1,0 +1,1 @@
+ALTER TABLE brands ADD COLUMN status int DEFAULT 0;
