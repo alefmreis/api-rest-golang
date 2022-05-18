@@ -8,4 +8,4 @@ WORKDIR /app
 
 RUN go build -o main ./cmd/httpServer/main.go
 
-CMD ["/app/cmd/httpServer/main.go"]
+CMD ["/app/main"]
