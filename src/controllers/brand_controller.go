@@ -9,11 +9,11 @@ import (
 )
 
 type BrandController struct {
-	service services.BrandService
+	Service services.BrandService
 }
 
 func NewBrandController(brandService services.BrandService) BrandController {
-	return BrandController{service: brandService}
+	return BrandController{Service: brandService}
 }
 
 func (bc BrandController) Create(c *gin.Context) {
@@ -25,7 +25,7 @@ func (bc BrandController) Create(c *gin.Context) {
 		return
 	}
 
-	bc.service.Save(brand.Name)
+	bc.Service.Save(brand.Name)
 
 	c.JSON(201, nil)
 }

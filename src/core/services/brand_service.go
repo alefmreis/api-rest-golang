@@ -9,22 +9,20 @@ import (
 )
 
 type BrandService struct {
-	brandRepository repositories.BrandRepository
-	uuidGenerator   helpers.UUID
+	BrandRepository repositories.BrandRepository
 }
 
-func NewBrandService(brandRepository repositories.BrandRepository, uuidGenerator helpers.UUID) *BrandService {
+func NewBrandService(brandRepository repositories.BrandRepository) *BrandService {
 	return &BrandService{
-		brandRepository: brandRepository,
-		uuidGenerator:   uuidGenerator,
+		BrandRepository: brandRepository,
 	}
 }
 
 func (cbuc *BrandService) Save(name string) error {
 
-	brand := domain.NewBrand(cbuc.uuidGenerator.New(), name)
+	brand := domain.NewBrand(helpers.NewUUID().New(), name)
 
-	if err := cbuc.brandRepository.Create(brand); err != nil {
+	if err := cbuc.BrandRepository.Create(brand); err != nil {
 		return errors.New("create brand into repository has failed")
 	}
 
