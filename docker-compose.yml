@@ -18,8 +18,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+
+    restart: on-failure
+
     env_file:
       - .env
+    ports:
+      - "3500:3500"
 
     depends_on:
       - postgres_db
