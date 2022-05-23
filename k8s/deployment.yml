@@ -20,22 +20,22 @@ spec:
     spec:
       containers:
         - name: api-cx
-          image: 86624399/api-cx:1.0.0
+          image: vad1mo/hello-world-rest
           ports:
-            - containerPort: 3500
+            - containerPort: 3300
               protocol: TCP
           resources:
             limits:
-              memory: 100Mi
+              memory: 200Mi
             requests:
               memory: 50Mi
           env:
             - name: PORT
-              value: "3500"
-          # envFrom:
-          # - configMapRef:
-          #     name: api-cx
-          # - secretRef:
-          #     name: api-cx
+              value: "3300"
+          envFrom:
+            # - configMapRef:
+            #     name: api-cx
+            - secretRef:
+                name: api-cx
       imagePullSecrets:
-        - name: registry-secret
+        - name: dockerhub-secret
