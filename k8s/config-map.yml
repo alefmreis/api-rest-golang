@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: api-cx
+  namespace: cx-team
+data:
+  APPLICATION_PORT: "3500"
+  POSTGRES_HOST: "api-cx.postgres"
+  POSTGRES_PORT: "5432"
