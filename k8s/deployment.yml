@@ -8,7 +8,7 @@ spec:
     matchLabels:
       app: api-cx
   replicas: 1
-  strategy: 
+  strategy:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 1
@@ -19,23 +19,23 @@ spec:
         app: api-cx
     spec:
       containers:
-      - name: api-cx
-        image: 86624399/api-cx:1.0.0
-        ports:
-        - containerPort: 3500
-          protocol: TCP
-        resources:
-          limits:
-            memory: 100Mi
-          requests:
-            memory: 50Mi  
-        env:
-        - name: PORT
-          value: "3500"
-        # envFrom:
-        # - configMapRef:
-        #     name: api-cx
-        # - secretRef:
-        #     name: api-cx        
+        - name: api-cx
+          image: 86624399/api-cx:1.0.0
+          ports:
+            - containerPort: 3500
+              protocol: TCP
+          resources:
+            limits:
+              memory: 100Mi
+            requests:
+              memory: 50Mi
+          env:
+            - name: PORT
+              value: "3500"
+          # envFrom:
+          # - configMapRef:
+          #     name: api-cx
+          # - secretRef:
+          #     name: api-cx
       imagePullSecrets:
-      - name: registry-secret
+        - name: registry-secret
